@@ -1,3 +1,6 @@
+
+require('./logger');
+
 function sayHello(name){
   console.log(name);
 }
