@@ -31,3 +31,34 @@ fs.readdir('$', (err, files) => {
 
 // if you change the error parameter of the readdif method you will get no such files or directory
 // event is a signal that indicTES  THAT SOMETHING HAS HAPPENED 
+
+// events in node
+
+const EventEmitter = require('events');
+const emitter = new   EventEmitter();
+// the event should start an uppercase but a class
+// class is containers for properties and function called methods
+// register a listedner
+emitter.on('messageLogged', (eventArg) => console.log('listener called', eventArg));
+
+ emitter.emit('messageLogged', {id: 1, url: "http://"});
+
+// raise logged : return loggin info
+
+
+// exercise
+
+function log(message) {
+   console.log(message);
+   emitter.emit('messageLogged', {id: 1, url: "http://"});
+
+}
+
+class Logger extends  EventEmitter {
+  log(message) {
+   console.log(message);
+   emitter.emit('messageLogged', {id: 1, url: "http://"});
+}
+}
+
+module.exports = Logger
